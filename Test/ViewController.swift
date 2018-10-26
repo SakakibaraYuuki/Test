@@ -8,18 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
+    let label = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+            view.backgroundColor = UIColor.green
+            label.text = "Hello World"
+            label.textAlignment = .center //配置するメソッド
+            view.addSubview(label) //addSubviewは「パーツを乗せる」もの　ここではlabel をviewに乗せる
+        
     }
 
+    
+    override func viewDidLayoutSubviews() { //レイアウト処理を終了する
+        super.viewDidLayoutSubviews()
+        label.frame = view.bounds
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
 
